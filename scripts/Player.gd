@@ -7,6 +7,8 @@ var rotation_speed = 0.1
 var movement_speed = 200
 var attached_to: Node2D
 var attach_offset: Vector2
+var border_size: float = 20
+var scroll_size: float = 20
 
 func _ready():
 	old_pos = global_position;
@@ -27,6 +29,15 @@ func _physics_process(delta):
 	if attached_to != null:
 		self.position = attached_to.position + attach_offset
 		attach_offset *= 0.975
+	
+	var cam = get_tree().root.get_node("Node2D/Camera2D") as Camera2D
+	var vp = get_viewport_rect().size + cam.position
+	if position.x > vp.x + border_size:
+		position.x = -border_size
+	if position.x < -border_size:
+		position.x = vp.x + border_size
+	
+	cam.position.y = position.y - get_viewport_rect().size.y / 2
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("press"):
