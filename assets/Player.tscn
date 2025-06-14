@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://blkxf2p205brj"]
+[gd_scene load_steps=6 format=3 uid="uid://blkxf2p205brj"]
 
 [ext_resource type="Script" uid="uid://cvcpiokiqskau" path="res://scripts/player.gd" id="1_16d5g"]
 [ext_resource type="Texture2D" uid="uid://dn1n7fpwwitj2" path="res://Sprites/icon.svg" id="1_jumf5"]
@@ -7,11 +7,15 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_e80uo"]
 radius = 30.0
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_16d5g"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+gravity = Vector3(0, 98, 0)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_16d5g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(9.53674e-07, 9.53674e-07)
 scale = Vector2(0.386719, 0.386719)
 texture = ExtResource("1_jumf5")
 script = ExtResource("2_16d5g")
@@ -22,4 +26,5 @@ debug_color = Color(0.545689, 0.534138, 0.516504, 0.42)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+process_material = SubResource("ParticleProcessMaterial_16d5g")
