@@ -1,23 +1,25 @@
 [gd_scene load_steps=6 format=3 uid="uid://blkxf2p205brj"]
 
 [ext_resource type="Script" uid="uid://cvcpiokiqskau" path="res://scripts/player.gd" id="1_16d5g"]
-[ext_resource type="Texture2D" uid="uid://dn1n7fpwwitj2" path="res://Sprites/icon.svg" id="1_jumf5"]
 [ext_resource type="Script" uid="uid://ce0pij7kw5fts" path="res://scripts/CharSprite.gd" id="2_16d5g"]
+[ext_resource type="Texture2D" uid="uid://d4ki8iu7ioy4m" path="res://Sprites/Rocket.png" id="2_ah03f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e80uo"]
 radius = 30.0
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_16d5g"]
+lifetime_randomness = 0.4
 particle_flag_disable_z = true
 direction = Vector3(0, -1, 0)
+initial_velocity_max = 105.13
 gravity = Vector3(0, 98, 0)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_16d5g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.386719, 0.386719)
-texture = ExtResource("1_jumf5")
+scale = Vector2(0.03125, 0.03125)
+texture = ExtResource("2_ah03f")
 script = ExtResource("2_16d5g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -38,4 +38,3 @@ func _input(event: InputEvent) -> void:
 		
 		var actual_rotation = rotation - PI / 2 # 0 = up
 		velocity = Vector2(cos(actual_rotation), sin(actual_rotation)).normalized() * movement_speed
-		print(velocity)
