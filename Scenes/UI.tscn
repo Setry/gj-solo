@@ -1,25 +1,31 @@
 [gd_scene format=3 uid="uid://i76ldopx1rto"]
 
-[node name="Control" type="Control"]
+[node name="GameUI" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1151.0
 offset_bottom = 646.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 250.0
-offset_bottom = 238.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="CounterText" type="RichTextLabel" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CounterText" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Counter:"
 fit_content = true
 
-[node name="Counter" type="RichTextLabel" parent="VBoxContainer"]
+[node name="Counter" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "--"
 fit_content = true
