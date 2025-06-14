@@ -13,10 +13,10 @@ func _process(delta):
 	#self.modulate = Color(1, 1, 1)
 	
 	
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("press"):
-		velocity = Vector2(randf() - 0.5, randf() - 0.5).normalized()
-		print("test")
-		pressed = true
-	elif event.is_action_released("press"):
-		pressed = false
+#func _input(event: InputEvent) -> void:
+#	if event.is_action_pressed("press"):
+#		velocity = Vector2(randf() - 0.5, randf() - 0.5).normalized()
+#		print("test")
+#		pressed = true
+#	elif event.is_action_released("press"):
+#		pressed = false
