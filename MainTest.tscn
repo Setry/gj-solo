@@ -4,7 +4,7 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_mno8e")]
+[node name="Player" parent="." instance=ExtResource("1_mno8e")]
 position = Vector2(526, 310)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
