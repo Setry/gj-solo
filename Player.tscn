@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://blkxf2p205brj"]
+
+[ext_resource type="Texture2D" uid="uid://d1nagvj16273i" path="res://Sprites/0qfv7ov5.png" id="1_kpjcp"]
+[ext_resource type="Script" uid="uid://ce0pij7kw5fts" path="res://CharSprite.gd" id="2_kne1u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e80uo"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.53125, 0.53125)
+texture = ExtResource("1_kpjcp")
+script = ExtResource("2_kne1u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e80uo")
+debug_color = Color(0.545689, 0.534138, 0.516504, 0.42)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
