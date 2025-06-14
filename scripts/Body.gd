@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	if position.x < -border_size:
 		position.x = vp.x + border_size
 		
-	if position.y > vp.y + border_size or position.y < -border_size:
-		queue_free()
-		get_tree().root.get_node("Node2D")._spawn()
+	#if position.y > vp.y + border_size or position.y < -border_size: FIXME
+	#	queue_free()
+	#	get_tree().root.get_node("Node2D")._spawn()
 	
