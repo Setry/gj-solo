@@ -15,6 +15,10 @@ run/main_scene="uid://bsa4keg000rd7"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://Sprites/icon.svg"
 
+[display]
+
+window/size/viewport_width=1151
+
 [input]
 
 Short={

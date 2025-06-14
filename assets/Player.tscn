@@ -5,13 +5,14 @@
 [ext_resource type="Script" uid="uid://ce0pij7kw5fts" path="res://scripts/CharSprite.gd" id="2_16d5g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e80uo"]
-radius = 13.0384
+radius = 30.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_16d5g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.164063, 0.164063)
+position = Vector2(9.53674e-07, 9.53674e-07)
+scale = Vector2(0.386719, 0.386719)
 texture = ExtResource("1_jumf5")
 script = ExtResource("2_16d5g")
 
