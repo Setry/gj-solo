@@ -117,7 +117,7 @@ func jumped():
 	_update_score()
 
 func _physics_process(delta: float) -> void:
-	if game_over:
+	if not game_running or game_over:
 		return
 	self.timer += delta
 	_update_score()
