@@ -1,12 +1,12 @@
 extends Area2D
 
 var velocity: Vector2
-var min_velocity: float = 5
+var min_velocity: float = 2
 var max_velocity: float = 5
 var border_size: float = 20
 
 func _init() -> void:
-	var mult = (randf() * max_velocity - min_velocity) + min_velocity
+	var mult = (randf() * (max_velocity - min_velocity)) + min_velocity
 	var angle = randf() * PI * 2
 	self.velocity = Vector2.from_angle(angle) * mult
 	self.rotation = randf() * PI * 2
