@@ -29,3 +29,41 @@ fit_content = true
 layout_mode = 2
 text = "--"
 fit_content = true
+
+[node name="PlanetDurationCounter" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "--"
+fit_content = true
+
+[node name="HP" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "ABCDEF"
+fit_content = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LoseContainer" type="VBoxContainer" parent="MarginContainer2"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="LoseText" type="Label" parent="MarginContainer2/LoseContainer"]
+layout_mode = 2
+text = "YOU LOSE"
+
+[node name="WinContainer" type="VBoxContainer" parent="MarginContainer2"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="LoseText" type="Label" parent="MarginContainer2/WinContainer"]
+layout_mode = 2
+text = "YOU LOSE"

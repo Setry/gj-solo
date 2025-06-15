@@ -4,7 +4,7 @@ var pos : Vector2;
 var old_pos : Vector2;
 var moving : bool;
 var rotation_speed = 0.1
-var movement_speed = 200
+var movement_speed = 250
 var attached_to: Node2D
 var attach_offset: Vector2
 var border_size: float = 20
@@ -20,7 +20,7 @@ func _attach_to(other):
 	
 	other._set_color(_get_color())
 	attached_to = other
-	attach_offset = position - other.position#
+	attach_offset = position - other.position
 	$Sprite2D.paused = true
 
 func _get_color():
@@ -33,6 +33,9 @@ func _physics_process(delta):
 	if attached_to != null:
 		self.position = attached_to.position + attach_offset
 		attach_offset *= 0.975
+		var main = get_tree().root.get_node("Node2D")
+		main.add_planet_duration(delta)
+		main.add_hp(delta * 10)
 	
 	var cam = get_tree().root.get_node("Node2D/Camera2D") as Camera2D
 	var vp = get_viewport_rect().size

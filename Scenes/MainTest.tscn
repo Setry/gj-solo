@@ -1,12 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsa4keg000rd7"]
+[gd_scene load_steps=6 format=3 uid="uid://bsa4keg000rd7"]
 
 [ext_resource type="Script" uid="uid://df1idrrvok7g4" path="res://scripts/Main.gd" id="1_bhhyf"]
 [ext_resource type="PackedScene" uid="uid://blkxf2p205brj" path="res://assets/Player.tscn" id="1_c2270"]
 [ext_resource type="PackedScene" uid="uid://c60pr2jyxtak8" path="res://assets/Star.tscn" id="4_oqdhm"]
+[ext_resource type="Texture2D" uid="uid://cxjxawk83iuip" path="res://Sprites/Background.png" id="5_3a646"]
 [ext_resource type="PackedScene" uid="uid://i76ldopx1rto" path="res://Scenes/UI.tscn" id="5_ycov7"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_bhhyf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 3
+position = Vector2(562, 375)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_3a646")
+region_enabled = true
+region_rect = Rect2(0, 0, 10000, 5e+06)
 
 [node name="Player" parent="." instance=ExtResource("1_c2270")]
 position = Vector2(526, 310)
