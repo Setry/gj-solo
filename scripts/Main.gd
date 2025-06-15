@@ -1,6 +1,7 @@
 extends Node2D
 
 var game_running: bool = false
+var game_over: bool = false
 var bodyScene
 var enemyScene
 var starScene
@@ -96,6 +97,7 @@ func enemy_collided():
 	if fuel <= 0:
 		var lose = find_child("LoseContainer") as VBoxContainer
 		lose.visible = true
+		game_over = true
 		get_tree().paused = true
 		
 	_update_score()
@@ -114,6 +116,8 @@ func jumped():
 	_update_score()
 
 func _physics_process(delta: float) -> void:
+	if game_over:
+		return
 	self.timer += delta
 	_update_score()
 
