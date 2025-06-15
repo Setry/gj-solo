@@ -7,6 +7,7 @@ var border_radius: float = 20
 var score: int
 var planet_duration: float
 var hp: float = 100
+var timer: float = 0
 
 func _ready() -> void:
 	bodyScene = load("res://assets/Body.tscn")
@@ -20,6 +21,8 @@ func _ready() -> void:
 	starScene = load("res://assets/Star.tscn")
 	for i in 5:
 		spawn_star()
+	
+	_update_score()
 
 func _process(delta: float) -> void:
 	var counter = 0
@@ -44,7 +47,7 @@ func spawn_meteor():
 	var pos = cam.position + vp / 2 - newBody.velocity.normalized() * spawnRadius
 	pos = Vector2(clampf(pos.x, minX, maxX), clampf(pos.y, minY, maxY))
 	newBody.position = pos
-	add_child(newBody)
+	$Spawner.add_child(newBody)
 	
 func spawn_enemy():
 	var cam = get_tree().root.get_node("Node2D/Camera2D") as Camera2D
@@ -60,7 +63,7 @@ func spawn_enemy():
 	var pos = cam.position + vp / 2 - newBody.velocity.normalized() * spawnRadius
 	pos = Vector2(clampf(pos.x, minX, maxX), clampf(pos.y, minY, maxY))
 	newBody.position = pos
-	add_child(newBody)
+	$Spawner.add_child(newBody)
 
 func spawn_star():
 	var cam = get_tree().root.get_node("Node2D/Camera2D") as Camera2D
@@ -69,14 +72,20 @@ func spawn_star():
 	var spawnX = cam.position.x + vp.x * randf()
 	var spawnY = cam.position.y - border_radius - vp.y * randf()
 	newStar.position = Vector2(spawnX, spawnY)
-	add_child(newStar)
+	$Spawner.add_child(newStar)
 
 func star_collected():
-	score += 10
+	score += 1
+	if score >= 10:
+		var win = find_child("WinContainer") as VBoxContainer
+		win.visible = true
+		get_tree().paused = true
+	
 	_update_score()
 
 func meteor_collided():
-	_update_score()
+	#_update_score()
+	pass
 
 func enemy_collided():
 	hp -= 20
@@ -96,6 +105,10 @@ func add_hp(hp: float):
 	self.hp = min(100, self.hp)
 	_update_score()
 
+func _physics_process(delta: float) -> void:
+	self.timer += delta
+	_update_score()
+
 func _update_score():
 	var counter = self.find_child("Counter", true, false)
 	counter.text = str(score)
@@ -105,3 +118,6 @@ func _update_score():
 	
 	var hp_indicator = self.find_child("HP", true, false)
 	hp_indicator.text = str(round(hp))
+	
+	var timer = self.find_child("Timer", true, false)
+	timer.text = str(round(self.timer * 1000) / 1000)

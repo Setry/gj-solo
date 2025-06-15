@@ -20,25 +20,46 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="CounterText" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "Counter:"
-fit_content = true
+text = "Stars collected:"
 
-[node name="Counter" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+[node name="Counter" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "--"
-fit_content = true
+text = "0"
 
-[node name="PlanetDurationCounter" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "--"
-fit_content = true
 
-[node name="HP" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-text = "ABCDEF"
-fit_content = true
+text = "Planet Duration:"
+
+[node name="PlanetDurationCounter" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "0"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "HP:"
+
+[node name="HP" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "0"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Time:"
+
+[node name="Timer" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "0"
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -64,6 +85,9 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="LoseText" type="Label" parent="MarginContainer2/WinContainer"]
+[node name="WinText" type="Label" parent="MarginContainer2/WinContainer"]
 layout_mode = 2
-text = "YOU LOSE"
+size_flags_horizontal = 4
+text = "YOU WIN
+CONGRATS"
+horizontal_alignment = 1

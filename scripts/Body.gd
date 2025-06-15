@@ -9,11 +9,13 @@ func _init() -> void:
 	var mult = (randf() * (max_velocity - min_velocity)) + min_velocity
 	var angle = randf() * PI * 2
 	self.velocity = Vector2.from_angle(angle) * mult
-	self.rotation = angle
+	self.rotation = randf() * PI * 2
 
 func _ready() -> void:
 #	self.area_entered.connect(_on_area_entered)
 	self.body_entered.connect(_on_body_entered)
+	var sprites = ["res://Sprites/Planet1.png", "res://Sprites/Planet2.png", "res://Sprites/Planet3.png", "res://Sprites/Planet4.png"]
+	$Sprite2D.texture = load(sprites[floor(randf() * len(sprites))])
 
 func _on_body_entered(body: Node2D):
 	if body.name != "Player":
