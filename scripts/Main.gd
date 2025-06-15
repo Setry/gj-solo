@@ -6,8 +6,9 @@ var starScene
 var border_radius: float = 20
 var score: int
 var planet_duration: float
-var hp: float = 100
+var fuel: float = 100
 var timer: float = 0
+var jumps: int = 0
 
 func _ready() -> void:
 	bodyScene = load("res://assets/Body.tscn")
@@ -19,7 +20,7 @@ func _ready() -> void:
 		spawn_enemy()
 
 	starScene = load("res://assets/Star.tscn")
-	for i in 5:
+	for i in 1:
 		spawn_star()
 	
 	_update_score()
@@ -88,8 +89,8 @@ func meteor_collided():
 	pass
 
 func enemy_collided():
-	hp -= 20
-	if hp <= 0:
+	fuel -= 20
+	if fuel <= 0:
 		var lose = find_child("LoseContainer") as VBoxContainer
 		lose.visible = true
 		get_tree().paused = true
@@ -100,9 +101,13 @@ func add_planet_duration(delta: float):
 	planet_duration += delta
 	_update_score()
 
-func add_hp(hp: float):
-	self.hp += hp
-	self.hp = min(100, self.hp)
+func add_fuel(fuel: float):
+	self.fuel += fuel
+	self.fuel = min(100, self.fuel)
+	_update_score()
+
+func jumped():
+	self.jumps += 1
 	_update_score()
 
 func _physics_process(delta: float) -> void:
@@ -114,10 +119,13 @@ func _update_score():
 	counter.text = str(score)
 	
 	var planet_duration_counter = self.find_child("PlanetDurationCounter", true, false)
-	planet_duration_counter.text = str(round(planet_duration * 1000) / 1000)
+	planet_duration_counter.text = str(round(planet_duration * 10) / 10)
 	
-	var hp_indicator = self.find_child("HP", true, false)
-	hp_indicator.text = str(round(hp))
+	var fuel_indicator = self.find_child("Fuel", true, false)
+	fuel_indicator.text = str(round(fuel))
 	
 	var timer = self.find_child("Timer", true, false)
-	timer.text = str(round(self.timer * 1000) / 1000)
+	timer.text = str(round(self.timer * 10) / 10)
+	
+	var jumps = self.find_child("Jumps", true, false)
+	jumps.text = str(self.jumps)

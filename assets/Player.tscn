@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cvcpiokiqskau" path="res://scripts/Player.gd" id="1_16d5g"]
 [ext_resource type="Script" uid="uid://ce0pij7kw5fts" path="res://scripts/CharSprite.gd" id="2_16d5g"]
-[ext_resource type="Texture2D" uid="uid://dfn6p1lsccnb5" path="res://Sprites/Rocket3.png" id="2_ah03f"]
+[ext_resource type="Texture2D" uid="uid://dp6brjrcwu5f5" path="res://Sprites/Rocket4.png" id="2_ah03f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e80uo"]
 radius = 30.0

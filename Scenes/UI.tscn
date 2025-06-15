@@ -28,6 +28,10 @@ text = "Stars collected:"
 layout_mode = 2
 text = "0"
 
+[node name="Counter2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "/ 10"
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
@@ -44,9 +48,9 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
-text = "HP:"
+text = "Fuel:"
 
-[node name="HP" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="Fuel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 text = "0"
 
@@ -58,6 +62,17 @@ layout_mode = 2
 text = "Time:"
 
 [node name="Timer" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "0"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "Jumps:"
+
+[node name="Jumps" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer5"]
 layout_mode = 2
 text = "0"
 

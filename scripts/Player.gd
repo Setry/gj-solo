@@ -35,7 +35,7 @@ func _physics_process(delta):
 		attach_offset *= 0.975
 		var main = get_tree().root.get_node("Node2D")
 		main.add_planet_duration(delta)
-		main.add_hp(delta * 10)
+		main.add_fuel(delta * 10)
 	
 	var cam = get_tree().root.get_node("Node2D/Camera2D") as Camera2D
 	var vp = get_viewport_rect().size
@@ -48,6 +48,9 @@ func _physics_process(delta):
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("press"):
+		var main = get_tree().root.get_node("Node2D")
+		main.jumped()
+		
 		if attached_to != null:
 			# Detach from node
 			attached_to = null
