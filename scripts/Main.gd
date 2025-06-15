@@ -14,7 +14,7 @@ func _ready() -> void:
 	for i in 10:
 		_spawn()
 		
-	print($Camera2D/Control/VBoxContainer/CounterText.text)
+	print($Camera2D/Control/MarginContainer/VBoxContainer/Counter.text)
 
 func _process(delta: float) -> void:
 	var counter = 0
@@ -55,4 +55,4 @@ func meteor_collided():
 
 func _update_score():
 	print(score)
-	$Camera2D/Control/VBoxContainer/Counter.text = str(score)
+	$Camera2D/Control/MarginContainer/VBoxContainer/Counter.text = str(score)
