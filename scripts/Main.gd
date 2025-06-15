@@ -12,9 +12,7 @@ func _ready() -> void:
 
 	starScene = load("res://assets/Star.tscn")
 	for i in 10:
-		_spawn()
-		
-	print($Camera2D/Control/MarginContainer/VBoxContainer/Counter.text)
+		_spawn_star()
 
 func _process(delta: float) -> void:
 	var counter = 0
@@ -42,11 +40,16 @@ func _spawn():
 	add_child(newBody)
 
 func _spawn_star():
-	pass
+	var cam = get_tree().root.get_node("Node2D/Camera2D") as Camera2D
+	var vp = get_viewport_rect().size
+	var newStar = starScene.instantiate() 
+	var spawnX = cam.position.x + vp.x * randf()
+	var spawnY = cam.position.y - border_radius - vp.y * randf()
+	newStar.position = Vector2(spawnX, spawnY)
+	add_child(newStar)
 
 func star_collected():
-	print("YAY")
-	score += 1
+	score += 10
 	_update_score()
 
 func meteor_collided():
@@ -54,5 +57,5 @@ func meteor_collided():
 	_update_score()
 
 func _update_score():
-	print(score)
-	$Camera2D/Control/MarginContainer/VBoxContainer/Counter.text = str(score)
+	var counter = self.find_child("Counter", true, false)
+	counter.text = str(score)
