@@ -84,6 +84,7 @@ func star_collected():
 	if score >= 10:
 		var win = find_child("WinContainer") as VBoxContainer
 		win.visible = true
+		game_over = true
 		get_tree().paused = true
 	
 	_update_score()
