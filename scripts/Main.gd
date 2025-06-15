@@ -16,7 +16,7 @@ func _ready() -> void:
 		spawn_meteor()
 
 	enemyScene = load("res://assets/Enemy.tscn")
-	for i in 2:
+	for i in 5:
 		spawn_enemy()
 
 	starScene = load("res://assets/Star.tscn")
