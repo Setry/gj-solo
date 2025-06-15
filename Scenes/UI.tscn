@@ -125,7 +125,7 @@ size_flags_vertical = 4
 
 [node name="StartText" type="Label" parent="MarginContainer2/StartContainer"]
 layout_mode = 2
-text = "You are "
+text = "Your Mission is to collect Stars! "
 horizontal_alignment = 1
 
 [node name="LoseContainer" type="VBoxContainer" parent="MarginContainer2"]
