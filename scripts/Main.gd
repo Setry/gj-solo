@@ -1,5 +1,6 @@
 extends Node2D
 
+var game_running: bool = false
 var bodyScene
 var enemyScene
 var starScene
@@ -9,6 +10,7 @@ var planet_duration: float
 var fuel: float = 100
 var timer: float = 0
 var jumps: int = 0
+var planets_visited: int = 0
 
 func _ready() -> void:
 	bodyScene = load("res://assets/Body.tscn")
@@ -24,6 +26,7 @@ func _ready() -> void:
 		spawn_star()
 	
 	_update_score()
+	get_tree().paused = true
 
 func _process(delta: float) -> void:
 	var counter = 0
@@ -85,7 +88,7 @@ func star_collected():
 	_update_score()
 
 func meteor_collided():
-	#_update_score()
+	self.planets_visited += 1
 	pass
 
 func enemy_collided():
@@ -129,3 +132,12 @@ func _update_score():
 	
 	var jumps = self.find_child("Jumps", true, false)
 	jumps.text = str(self.jumps)
+	
+	var planet_counter = self.find_child("PlanetCounter", true, false)
+	planet_counter.text = str(self.planets_visited)
+
+func _input(event: InputEvent) -> void:
+	if not game_running and event.is_action_pressed("press"):
+		get_tree().paused = false
+		find_child("StartContainer", true, false).visible = false
+		game_running = true

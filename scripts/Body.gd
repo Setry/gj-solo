@@ -20,9 +20,10 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D):
 	if body.name != "Player":
 		return
-	body._attach_to(self)
-	var main = get_tree().root.get_node("Node2D")
-	main.meteor_collided()
+	
+	if body._attach_to(self):
+		var main = get_tree().root.get_node("Node2D")
+		main.meteor_collided()
 
 #func _on_area_entered(area: Node2D):
 #	print("E")

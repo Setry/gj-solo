@@ -7,9 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://i76ldopx1rto" path="res://Scenes/UI.tscn" id="5_ycov7"]
 
 [node name="Node2D" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_bhhyf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+process_mode = 1
 texture_repeat = 3
 position = Vector2(562, 375)
 scale = Vector2(0.5, 0.5)
@@ -18,14 +20,18 @@ region_enabled = true
 region_rect = Rect2(0, 0, 10000, 5e+06)
 
 [node name="Spawner" type="Node2D" parent="."]
+process_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("1_c2270")]
-position = Vector2(526, 310)
+process_mode = 1
+position = Vector2(574, 316)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 1
 anchor_mode = 0
 
 [node name="Control" parent="Camera2D" instance=ExtResource("5_ycov7")]
 
 [node name="Area2D2" parent="." instance=ExtResource("4_oqdhm")]
+process_mode = 1
 position = Vector2(606, 112)

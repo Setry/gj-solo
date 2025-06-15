@@ -16,12 +16,13 @@ func _ready():
 
 func _attach_to(other):
 	if attached_to != null:
-		return
+		return false
 	
 	other._set_color(_get_color())
 	attached_to = other
 	attach_offset = position - other.position
 	$Sprite2D.paused = true
+	return true
 
 func _get_color():
 	return $Sprite2D.modulate
@@ -35,7 +36,7 @@ func _physics_process(delta):
 		attach_offset *= 0.975
 		var main = get_tree().root.get_node("Node2D")
 		main.add_planet_duration(delta)
-		main.add_fuel(delta * 10)
+		main.add_fuel(delta * 5)
 	
 	var cam = get_tree().root.get_node("Node2D/Camera2D") as Camera2D
 	var vp = get_viewport_rect().size
