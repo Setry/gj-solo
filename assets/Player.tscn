@@ -29,4 +29,6 @@ debug_color = Color(0.545689, 0.534138, 0.516504, 0.42)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 20
+preprocess = 1.0
 process_material = SubResource("ParticleProcessMaterial_16d5g")
