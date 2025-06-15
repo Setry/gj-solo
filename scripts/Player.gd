@@ -15,8 +15,12 @@ func _ready():
 	pos = global_position;
 
 func _attach_to(other):
+	if attached_to != null:
+		return
+	
+	other._set_color(_get_color())
 	attached_to = other
-	attach_offset = position - other.position
+	attach_offset = position - other.position#
 	$Sprite2D.paused = true
 
 func _get_color():
@@ -31,11 +35,11 @@ func _physics_process(delta):
 		attach_offset *= 0.975
 	
 	var cam = get_tree().root.get_node("Node2D/Camera2D") as Camera2D
-	var vp = get_viewport_rect().size + cam.position
-	if position.x > vp.x + border_size:
-		position.x = -border_size
-	if position.x < -border_size:
-		position.x = vp.x + border_size
+	var vp = get_viewport_rect().size
+	if position.x > cam.position.x + vp.x + border_size:
+		position.x = cam.position.x - border_size
+	if position.x < cam.position.x - border_size:
+		position.x = cam.position.x + vp.x + border_size
 	
 	cam.position.y = position.y - get_viewport_rect().size.y / 2
 
