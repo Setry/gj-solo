@@ -18,6 +18,6 @@ func _physics_process(delta: float) -> void:
 	var cam = get_tree().root.get_node("Node2D/Camera2D") as Camera2D
 	var main = get_tree().root.get_node("Node2D");
 	var vp = get_viewport_rect().size
-	if abs(position.y - (cam.position.y + vp.x / 2)) > vp.x / 2 * 3:
+	if abs(position.y - (cam.position.y + vp.x / 2)) > vp.x / 2 * 2:
 		queue_free()
 		main._spawn_star()
