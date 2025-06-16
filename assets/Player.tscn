@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://blkxf2p205brj"]
+[gd_scene load_steps=8 format=3 uid="uid://blkxf2p205brj"]
 
 [ext_resource type="Script" uid="uid://cvcpiokiqskau" path="res://scripts/Player.gd" id="1_16d5g"]
+[ext_resource type="Texture2D" uid="uid://bslxpari4vekj" path="res://Sprites/cloud.png" id="2_3vv5g"]
 [ext_resource type="Script" uid="uid://ce0pij7kw5fts" path="res://scripts/CharSprite.gd" id="2_16d5g"]
 [ext_resource type="Texture2D" uid="uid://dp6brjrcwu5f5" path="res://Sprites/Rocket4.png" id="2_ah03f"]
 
-[sub_resource type="Curve" id="Curve_16d5g"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_3s7hn"]
+_data = [Vector2(0, 0.730337), 0.0, 0.0, 0, 0, Vector2(0.6875, 0), -1.17416, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e80uo"]
@@ -21,11 +22,22 @@ gravity = Vector3(0, 98, 0)
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_16d5g")
 
-[node name="Boost" type="CPUParticles2D" parent="."]
-local_coords = true
-scale_amount_min = 0.01
-scale_amount_max = 0.02
-scale_amount_curve = SubResource("Curve_16d5g")
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, 18)
+emitting = false
+amount = 20
+texture = ExtResource("2_3vv5g")
+lifetime = 0.4
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.6
+emission_shape = 5
+emission_points = PackedVector2Array(0, 0)
+emission_normals = PackedVector2Array()
+emission_colors = PackedColorArray()
+gravity = Vector2(0, 0)
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_3s7hn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.03125, 0.03125)
@@ -40,5 +52,4 @@ debug_color = Color(0.545689, 0.534138, 0.516504, 0.42)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 amount = 20
-preprocess = 1.0
 process_material = SubResource("ParticleProcessMaterial_16d5g")
