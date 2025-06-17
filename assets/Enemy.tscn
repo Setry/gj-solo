@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4hu7d53g2utr"]
+[gd_scene load_steps=5 format=3 uid="uid://b4hu7d53g2utr"]
 
 [ext_resource type="Script" uid="uid://dmbhta84b0yx4" path="res://scripts/Enemy.gd" id="1_2fdgs"]
 [ext_resource type="Texture2D" uid="uid://d2ljc2locuii" path="res://Sprites/Enemy2.png" id="2_2fdgs"]
+
+[sub_resource type="Curve" id="Curve_2fdgs"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.721591, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2rrn"]
 radius = 31.9
@@ -12,6 +16,24 @@ script = ExtResource("1_2fdgs")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.0895833, 0.0895833)
 texture = ExtResource("2_2fdgs")
+
+[node name="Explosion" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 40
+lifetime = 0.5
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 12.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 250.0
+scale_amount_min = 15.0
+scale_amount_max = 15.0
+scale_amount_curve = SubResource("Curve_2fdgs")
+color = Color(0.988235, 0.619608, 0, 0.635294)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_g2rrn")

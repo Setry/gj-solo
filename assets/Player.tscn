@@ -22,7 +22,7 @@ gravity = Vector3(0, 98, 0)
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_16d5g")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="JumpEmission" type="CPUParticles2D" parent="."]
 position = Vector2(0, 18)
 emitting = false
 amount = 20

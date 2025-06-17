@@ -5,6 +5,10 @@ var min_velocity: float = 2
 var max_velocity: float = 5
 var border_size: float = 20
 
+var lifetime
+var exploded: bool = false
+
+
 func _init() -> void:
 	var mult = (randf() * (max_velocity - min_velocity)) + min_velocity
 	var angle = randf() * PI * 2
@@ -15,6 +19,7 @@ func _ready() -> void:
 	self.body_entered.connect(_on_body_entered)
 	var sprites = ["res://Sprites/Enemy.png", "res://Sprites/Enemy2.png"]
 	$Sprite2D.texture = load(sprites[floor(randf() * len(sprites))])
+	lifetime = $Explosion.lifetime
 
 func _on_body_entered(body: Node2D):
 	if body.name != "Player":
@@ -23,10 +28,15 @@ func _on_body_entered(body: Node2D):
 	if body.attached_to != null:
 		return
 	
-	var main = get_tree().root.get_node("Node2D")
-	main.enemy_collided()
-	queue_free()
-	get_tree().root.get_node("Node2D").spawn_enemy()
+	if exploded == false:
+		print("col with meterite") 
+		$Explosion.emitting = true 
+
+		var main = get_tree().root.get_node("Node2D")
+		main.enemy_collided()
+		exploded = true
+#	queue_free() 
+#	get_tree().root.get_node("Node2D").spawn_enemy()
 
 func _set_color(color: Color):
 	$Sprite2D.modulate = color
@@ -49,3 +59,9 @@ func _physics_process(delta: float) -> void:
 		queue_free()
 		get_tree().root.get_node("Node2D").spawn_enemy()
 	
+func _process(delta):	
+	if exploded == true:
+		lifetime -=delta
+		if lifetime < 0:
+			queue_free()
+			get_tree().root.get_node("Node2D").spawn_enemy()

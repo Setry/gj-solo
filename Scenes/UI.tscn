@@ -206,7 +206,7 @@ size_flags_vertical = 4
 
 [node name="LoseText" type="Label" parent="MarginContainer2/LoseContainer"]
 layout_mode = 2
-text = "YOU LOSE"
+text = "Out of carrots, better luck next time."
 label_settings = SubResource("LabelSettings_mqm5i")
 
 [node name="WinContainer" type="VBoxContainer" parent="MarginContainer2"]
@@ -218,7 +218,7 @@ size_flags_vertical = 4
 [node name="WinText" type="Label" parent="MarginContainer2/WinContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "YOU WIN
-CONGRATS"
+text = "Congratulation!
+You managed to Collect all 10 Stars!"
 label_settings = SubResource("LabelSettings_jnovg")
 horizontal_alignment = 1
