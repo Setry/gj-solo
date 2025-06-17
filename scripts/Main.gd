@@ -142,7 +142,10 @@ func _update_score():
 	planet_counter.text = str(self.planets_visited)
 
 func _input(event: InputEvent) -> void:
-	if not game_running and event.is_action_pressed("press"):
-		get_tree().paused = false
-		find_child("StartContainer", true, false).visible = false
-		game_running = true
+	if event.is_action_pressed("press"):
+		if not game_running:
+			get_tree().paused = false
+			find_child("StartContainer", true, false).visible = false
+			game_running = true
+		elif game_over:
+			get_tree().reload_current_scene()

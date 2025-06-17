@@ -28,13 +28,16 @@ func _on_body_entered(body: Node2D):
 	if body.attached_to != null:
 		return
 	
-	if exploded == false:
-		print("col with meterite") 
-		$Explosion.emitting = true 
+	if exploded:
+		return
+	
+	print("col with meteorite") 
+	$Explosion.emitting = true 
 
-		var main = get_tree().root.get_node("Node2D")
-		main.enemy_collided()
-		exploded = true
+	var main = get_tree().root.get_node("Node2D")
+	main.enemy_collided()
+	$Sprite2D.visible = false
+	exploded = true
 #	queue_free() 
 #	get_tree().root.get_node("Node2D").spawn_enemy()
 
@@ -59,9 +62,9 @@ func _physics_process(delta: float) -> void:
 		queue_free()
 		get_tree().root.get_node("Node2D").spawn_enemy()
 	
-func _process(delta):	
-	if exploded == true:
-		lifetime -=delta
+func _process(delta):
+	if exploded:
+		lifetime -= delta
 		if lifetime < 0:
 			queue_free()
 			get_tree().root.get_node("Node2D").spawn_enemy()
