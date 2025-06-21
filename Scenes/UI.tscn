@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://i76ldopx1rto"]
+[gd_scene load_steps=21 format=3 uid="uid://i76ldopx1rto"]
 
 [ext_resource type="Texture2D" uid="uid://dtitj7k8r5v7u" path="res://Sprites/Star.png" id="1_nxvpl"]
 [ext_resource type="Texture2D" uid="uid://wxtcsan1aepf" path="res://Sprites/Planet1.png" id="1_w371h"]
@@ -7,59 +7,63 @@
 [ext_resource type="Texture2D" uid="uid://0isb5ayg2q7w" path="res://Sprites/Rabbit.png" id="5_qwshj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_48q88"]
-outline_size = 1
+outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_xjg7p"]
-outline_size = 1
+outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_mg6lk"]
-outline_size = 1
+outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wunin"]
-outline_size = 1
+outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_j04uc"]
-outline_size = 1
+outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vqx31"]
-outline_size = 1
+outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_13dyv"]
-outline_size = 1
+outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_b1goy"]
-outline_size = 1
+outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_n04ve"]
-outline_size = 1
+outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qwshj"]
-outline_size = 1
+outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wi7yl"]
-outline_size = 1
+outline_size = 4
 outline_color = Color(0.000693898, 0.000693898, 0.000693898, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5q4fb"]
-outline_size = 1
+outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_mqm5i"]
-outline_size = 1
+outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jnovg"]
-outline_size = 1
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_r71lk"]
+outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [node name="GameUI" type="Control"]
@@ -129,9 +133,6 @@ expand_mode = 2
 layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_j04uc")
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
 
 [node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -225,3 +226,13 @@ You managed to Collect all 10 Stars!
 Press the button to restart."
 label_settings = SubResource("LabelSettings_jnovg")
 horizontal_alignment = 1
+
+[node name="CreditsContainer" type="VBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="MarginContainer2/CreditsContainer"]
+layout_mode = 2
+text = "Made by Setry, MrLetsplay"
+label_settings = SubResource("LabelSettings_r71lk")

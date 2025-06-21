@@ -146,6 +146,7 @@ func _input(event: InputEvent) -> void:
 		if not game_running:
 			get_tree().paused = false
 			find_child("StartContainer", true, false).visible = false
+			find_child("CreditsContainer", true, false).visible = false
 			game_running = true
 		elif game_over:
 			get_tree().reload_current_scene()
